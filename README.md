@@ -107,7 +107,8 @@ O Boss persegue o jogador e, a cada **4 turnos**, executa uma **investida**: ava
 >
 > Todo o código entregue foi compreendido, revisado e testado pela equipe, e todos os integrantes são capazes de explicar cada parte da implementação.
 
-
+---
+Foram utilizados no desenvolvimento desse projeto as ai: GitHub Copilot e Claude.ai
 
 ---
 
