@@ -117,4 +117,10 @@ O Boss persegue o jogador e, a cada **4 turnos**, executa uma **investida**: ava
 .
 ├── main.c       # Código-fonte completo do jogo
 └── README.md    # Este arquivo
-```
+
+Para executar o projeto, é necessário possuir um compilador C instalado, como o GCC. Após clonar ou baixar os arquivos do repositório, navegue até a pasta do projeto utilizando o terminal e compile todos os arquivos-fonte que compõem o jogo. Concluída a compilação, será gerado um arquivo executável que poderá ser iniciado diretamente pelo terminal.
+
+Durante a execução, o jogador poderá percorrer os cenários, explorar ambientes distintos, coletar chaves para desbloquear novas áreas, interagir com NPCs e enfrentar inimigos que se movimentam dinamicamente pelo mapa. O projeto foi desenvolvido com fins educacionais, servindo como aplicação prática de conceitos de programação, lógica computacional e desenvolvimento de jogos em linguagem C.
+
+Este repositório reúne todo o código-fonte necessário para a compilação e execução do jogo, além de servir como registro do processo de desenvolvimento e evolução do projeto.
+Recomenda-se que utilize o Vscode configurado ou Falcon C++.
