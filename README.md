@@ -7,7 +7,7 @@ Um jogo de masmorra (*dungeon crawler*) feito em **C puro**, jogado inteiramente
 ## 👥 Desenvolvedores
 
 - **[Marco Matheus Ribeiro da Silva Vinagre]**
-- **[Rafael da Silva]**
+- **[Raphael de Almeida Castro]**
   
 
 >
