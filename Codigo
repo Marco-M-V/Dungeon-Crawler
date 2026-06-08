@@ -14,7 +14,7 @@
 #include <conio.h>   /* _getch() no Windows */
 #include <windows.h> /* system("cls"), Sleep() */
 
-/* ---------------------- Constantes globais ------------------------- */
+/* Constantes globais */
 #define MAX_LIN 25
 #define MAX_COL 25
 
@@ -44,7 +44,7 @@
 #define ARMA_ARCO   2
 #define ARMA_CAJADO 3
 
-/* ---------------------- Estruturas --------------------------------- */
+/* Estruturas */
 typedef struct {
     char grid[MAX_LIN][MAX_COL]; /* o que esta "no chao" (sem o jogador) */
     int  linhas, colunas;
@@ -52,21 +52,21 @@ typedef struct {
 
 typedef struct {
     int lin, col;
-    int dir;        /* CIMA, BAIXO, ESQ, DIR */
+    int dir;       
     int vidas;
     int arma;
-    int chaves;     /* chaves coletadas no andar atual */
+    int chaves;     
     int vivo;
 } Jogador;
 
 typedef struct {
     int lin, col;
-    char tipo;      /* C_MON1, C_MON2, C_BOSS */
+    char tipo;     
     int vivo;
-    int hp;         /* usado pelo boss */
+    int hp;         
 } Monstro;
 
-/* ---------------------- Variaveis globais -------------------------- */
+/* Variaveis globais */
 Mapa mapa;
 Jogador jog;
 Monstro monstros[40];
@@ -74,7 +74,7 @@ int numMonstros = 0;
 int andarAtual = 0;     /* 0 = vila, 1..3 = andares */
 int botaoAtivado = 0;   /* flag de estado do botao no andar */
 
-/* ---------------------- Prototipos --------------------------------- */
+/* Prototipos */
 void limparTela(void);
 char simboloJogador(void);
 int  ehParede(char c);
@@ -109,9 +109,7 @@ void escolherArma(void);
 int  jogarAndar(void); /* retorna: 1 avancou, 0 game over, -1 saiu */
 void loopJogo(void);
 
-/* ===================================================================
-   UTILITARIOS
-   =================================================================== */
+//Utilitarios 
 void limparTela(void) {
     system("cls");
 }
@@ -137,9 +135,9 @@ void mensagem(const char *msg) {
     _getch();
 }
 
-/* ===================================================================
-   DESENHO DO MAPA
-   =================================================================== */
+/* 
+   DESENHO DO MAPA */
+
 void desenhar(void) {
     int i, j, k;
     limparTela();
@@ -325,9 +323,9 @@ void resetAndar(void) {
     }
 }
 
-/* ===================================================================
+/* 
    MOVIMENTO DO JOGADOR
-   =================================================================== */
+    */
 void moverJogador(int dir) {
     int nl = jog.lin, nc = jog.col;
     jog.dir = dir;
@@ -362,9 +360,9 @@ void moverJogador(int dir) {
     }
 }
 
-/* ===================================================================
+/* 
    INTERAGIR (tecla i) - olha a celula a frente
-   =================================================================== */
+    */
 void interagir(void) {
     int fl = jog.lin, fc = jog.col;
     switch (jog.dir) {
@@ -413,9 +411,9 @@ void interagir(void) {
     mensagem("Nao ha nada para interagir aqui.");
 }
 
-/* ===================================================================
+/* 
    ATAQUE (tecla o) - varia conforme a arma
-   =================================================================== */
+    */
 static void tentarDestruir(int l, int c) {
     if (l < 0 || l >= mapa.linhas || c < 0 || c >= mapa.colunas) return;
 
@@ -472,9 +470,9 @@ void atacar(void) {
     }
 }
 
-/* ===================================================================
+/* 
    IA DOS MONSTROS
-   =================================================================== */
+    */
 void moverMonstro1(Monstro *m) {
     /* movimento aleatorio: 1 unidade numa direcao aleatoria */
     int d = rand() % 4;
@@ -558,9 +556,9 @@ int colisaoMonstro(void) {
     return 0;
 }
 
-/* ===================================================================
+/* 
    VIDAS / DERROTA
-   =================================================================== */
+    */
 void perderVida(void) {
     jog.vidas--;
     if (jog.vidas <= 0) {
@@ -571,9 +569,9 @@ void perderVida(void) {
     resetAndar(); /* reinicia a fase do inicio */
 }
 
-/* ===================================================================
+/* 
    TELAS
-   =================================================================== */
+    */
 void escolherArma(void) {
     int op = 0;
     do {
@@ -725,9 +723,9 @@ int jogarAndar(void) {
     }
 }
 
-/* ===================================================================
+/* 
    LOOP PRINCIPAL DO JOGO (do menu Jogar)
-   =================================================================== */
+    */
 void loopJogo(void) {
     int r;
 
@@ -775,9 +773,9 @@ void loopJogo(void) {
     if (r == 2) { telaVitoria(); return; } /* matou o boss */
 }
 
-/* ===================================================================
+/* 
    MENU PRINCIPAL
-   =================================================================== */
+    */
 void menuPrincipal(void) {
     int op;
     while (1) {
@@ -804,9 +802,9 @@ void menuPrincipal(void) {
     }
 }
 
-/* ===================================================================
+/* 
    MAIN
-   =================================================================== */
+    */
 int main(void) {
     srand((unsigned)time(NULL));
     menuPrincipal();
